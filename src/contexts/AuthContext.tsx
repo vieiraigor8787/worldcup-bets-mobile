@@ -23,6 +23,7 @@ export interface AuthContextDataProps {
 export const AuthContext = createContext({} as AuthContextDataProps);
 
 export function AuthContextProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<User>({} as User);
   const [isUserLoading, setIsUserLoading] = useState(false);
 
   const authKey = AuthSession.makeRedirectUri({ useProxy: true });
@@ -49,10 +50,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
       value={{
         signIn,
         isUserLoading,
-        user: {
-          name: 'igor',
-          avatar: 'https://github.com/vieiraigor8787.png',
-        },
+        user,
       }}
     >
       {children}
