@@ -8,6 +8,7 @@ import { NativeBaseProvider, Center, StatusBar } from 'native-base';
 
 import { Loading } from './src/componets/Loading';
 import { AuthContextProvider } from './src/contexts/AuthContext';
+import { New } from './src/screens/NewGame';
 import { SignIn } from './src/screens/SignIn';
 
 import { THEME } from './src/styles/theme';
@@ -28,7 +29,7 @@ export default function App() {
           translucent
         />
         <Center flex={1} bgColor="gray.900">
-          {fontsLoaded ? <SignIn /> : <Loading />}
+          {fontsLoaded ? <New /> : <Loading />}
         </Center>
       </AuthContextProvider>
     </NativeBaseProvider>

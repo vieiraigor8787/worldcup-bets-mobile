@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import * as AuthSession from 'expo-auth-session';
 import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
@@ -44,6 +44,16 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
       setIsUserLoading(false);
     }
   }
+
+  async function signInWithGoogle(access_token: string) {
+    console.log('token', access_token);
+  }
+
+  useEffect(() => {
+    if (response?.type === 'success' && response.authentication?.accessToken) {
+      signInWithGoogle(response.authentication.accessToken);
+    }
+  }, [response]);
 
   return (
     <AuthContext.Provider
