@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "worldcupbetapp",
+    "slug": "worldcupbetapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,6 +11,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#000"
     },
+    "scheme": "worldcupbetapp",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
