@@ -6,14 +6,12 @@ import {
 } from '@expo-google-fonts/roboto';
 import { NativeBaseProvider, Center, StatusBar } from 'native-base';
 
+import { Routes } from './src/routes';
 import { Loading } from './src/componets/Loading';
 import { AuthContextProvider } from './src/contexts/AuthContext';
-import { Bets } from './src/screens/Bets';
-import { Find } from './src/screens/FindGame';
-import { New } from './src/screens/NewGame';
-import { SignIn } from './src/screens/SignIn';
 
 import { THEME } from './src/styles/theme';
+import { SignIn } from './src/screens/SignIn';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,7 +29,7 @@ export default function App() {
           translucent
         />
         <Center flex={1} bgColor="gray.900">
-          {fontsLoaded ? <Bets /> : <Loading />}
+          {fontsLoaded ? <Routes /> : <Loading />}
         </Center>
       </AuthContextProvider>
     </NativeBaseProvider>
