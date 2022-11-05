@@ -1,9 +1,11 @@
 import { Icon, Text, VStack } from 'native-base';
 import { Octicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { Button } from '../componets/Button';
 import { Header } from '../componets/Header';
 
 export function Bets() {
+  const navigation = useNavigation();
   return (
     <VStack flex={1} bgColor="gray.900">
       <Header title="Meus bolões" />
@@ -18,13 +20,9 @@ export function Bets() {
         <Button
           title="Bucar bolão por código"
           leftIcon={<Icon as={Octicons} name="search" color="black" />}
+          onPress={() => navigation.navigate('find')}
         />
       </VStack>
-      <Text color="white" textAlign="center" px={10}>
-        Você ainda não está participando de {'\n'} nenhum bolão, que tal{' '}
-        <Text color="yellow.500">buscar um por código</Text> {'\n'} ou{' '}
-        <Text color="yellow.500">criar um novo</Text>?
-      </Text>
     </VStack>
   );
 }
